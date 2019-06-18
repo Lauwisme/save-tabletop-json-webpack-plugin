@@ -42,7 +42,7 @@ module.exports = function () {
               console.log(key);
               var dataString = JSON.stringify(obj.elements, null, 4);
 
-              _fs2.default.writeFileSync(option.sourceDir + key + '.json', dataString);
+              _fs2.default.writeFileSync(option.outputDir + key + '.json', dataString);
             }
           };
           option.callback = onLoadTabletopData;

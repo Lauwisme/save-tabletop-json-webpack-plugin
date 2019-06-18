@@ -25,7 +25,7 @@ module.exports = class SaveRemoteFilePlugin {
               console.log(key)
               const dataString = JSON.stringify(obj.elements, null, 4)
 
-              fs.writeFileSync(option.sourceDir + key + '.json', dataString)
+              fs.writeFileSync(option.outputDir + key + '.json', dataString)
             }
           }
           option.callback = onLoadTabletopData;
