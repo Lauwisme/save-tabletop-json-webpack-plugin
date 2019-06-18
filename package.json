@@ -1,0 +1,23 @@
+{
+  "author": {
+    "name": "lauwisme",
+    "company": "rundis"
+  },
+  "dependencies": {
+    "tabletop": "^1.5.2"
+  },
+  "description": "webpack 4 plugin to download & save googlesheets as json using tabletop locally",
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
+    "babel-preset-es2015": "^6.22.0"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "@lauwisme/save-tabletop-json-webpack-plugin",
+  "repository": "Lauwisme/save-tabletop-json-webpack-plugin",
+  "scripts": {
+    "build": "babel src/index.js --presets es2015 --out-file dist/index.js"
+  },
+  "version": "1.0.0"
+}
