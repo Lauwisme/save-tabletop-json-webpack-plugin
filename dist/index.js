@@ -30,16 +30,17 @@ module.exports = function () {
     value: function apply(compiler) {
       var _this = this;
 
-      compiler.hooks.emit.tapAsync({
+      compiler.hooks.entryOption.tap({
         name: 'SaveTabletopJsonWebpackPlugin',
         context: true
       }, function (context, compilation, callback) {
         var count = _this.options.length;
         var tabletopInit = function tabletopInit(option) {
+          console.log('downloading gsheet');
           var onLoadTabletopData = function onLoadTabletopData(data) {
             for (var key in data) {
               var obj = data[key];
-              console.log(key);
+              //console.log(key)
               var dataString = JSON.stringify(obj.elements, null, 4);
 
               _fs2.default.writeFileSync(option.outputDir + key + '.json', dataString);
@@ -47,6 +48,11 @@ module.exports = function () {
           };
           option.callback = onLoadTabletopData;
           _tabletop2.default.init(option);
+
+          count--;
+          if (count === 0) {
+            //callback();
+          }
         };
         _this.options.forEach(tabletopInit);
       });
